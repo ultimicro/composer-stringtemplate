@@ -1,4 +1,5 @@
 # Template provider for Composer using StringTemplate 4
+[![Nuget](https://img.shields.io/nuget/v/Composer.StringTemplate)](https://www.nuget.org/packages/Composer.StringTemplate)
 
 This is a template provider for [Composer](https://github.com/ultimicro/composer) using [StringTemplate 4](https://www.stringtemplate.org).
 
@@ -12,12 +13,12 @@ services
     .AddTemplateRepository<RepositoryImplementation>();
 ```
 
-`RepositoryImplementation` is an implementation of `ITemplateRepository`.
+You need to provide `RepositoryImplementation`, which is `ITemplateRepository` implementation.
 
 ### Template syntax
 
-We use [formal syntax](https://github.com/antlr/stringtemplate4/blob/master/doc/cheatsheet.md#groups) (AKA. group syntax) with `$` as delimiter. You need to
-define the following templates for each email:
+The `TemplateData.Template` is a StringTemplate 4 template in a [formal syntax](https://github.com/antlr/stringtemplate4/blob/master/doc/cheatsheet.md#groups)
+(AKA. group syntax) with `$` as delimiter. You need to define the following templates for each email template:
 
 - `subject(recipients, data)`: Subject template.
 - `plain(recipients, data)`: Plain text body message.
